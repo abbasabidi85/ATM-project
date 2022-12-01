@@ -9,11 +9,11 @@ public class AtmDriverCode{
 		
 		//ATM details
 		
-		AtmDetails atmDetails1 = new AtmDetails(86510178,789,"23/09/2026",987);
-		AtmDetails atmDetails2 = new AtmDetails(18638346,729,"11/09/2026",982);
-		AtmDetails atmDetails3 = new AtmDetails(88382423,719,"23/11/2026",937);
-		AtmDetails atmDetails4 = new AtmDetails(86243838,780,"22/09/2027",997);
-		AtmDetails atmDetails5 = new AtmDetails(86534338,785,"23/12/2024",927);
+		AtmDetails atmDetails1 = new AtmDetails(86510178,789,"23/09/2026",987, 000123445);
+		AtmDetails atmDetails2 = new AtmDetails(18638346,729,"11/09/2026",982, 000123445);
+		AtmDetails atmDetails3 = new AtmDetails(88382423,719,"23/11/2026",937, 000123445);
+		AtmDetails atmDetails4 = new AtmDetails(86243838,780,"22/09/2027",997, 000123445);
+		AtmDetails atmDetails5 = new AtmDetails(86534338,785,"23/12/2024",927, 000123445);
 		
 		//Customer details
 		Customer customer1 = new Customer("Md Shamim","Male");
@@ -75,7 +75,7 @@ public class AtmDriverCode{
 			while (true) {
 				
 				//ATM menu
-				JOptionPane.showMessageDialog(null,"1.View Balance\n2.Withdraw Amount\n3.Deposit Amount\n4.Mini Statement\n5.Exit\n");
+				JOptionPane.showMessageDialog(null,"1.View Balance\n2.Withdraw Amount\n3.Deposit Amount\n4.Transfer Funds\n5.Mini Statement\n6.Exit\n");
 				
 				short choice =  Short.parseShort(JOptionPane.showInputDialog("Enter your choice"));
 
@@ -97,10 +97,28 @@ public class AtmDriverCode{
 						atmOperation.deposit(depAmount);
 						break;
 					case 4:
-						// Mini Statement
+						// Transfer Funds
+						long tfCardNo =  Long.parseLong(JOptionPane.showInputDialog("Enter the card number:"));
+		                long tfIFSCode =  Long.parseLong(JOptionPane.showInputDialog("Enter the IFSC Code:"));
+						Customer validateCustomer=null;
+
+						for(Customer tf:listCustomer) {
+							if((tf.getAtmArray().get(0).getCardNo()==tfCardNo&&(tf.getAtmArray().get(0).getIFSC()==tfIFSCode))) {
+								validateCustomer=tf;
+							break;
+							}
+							else {
+								//System.err.println("Incorrect details!!");
+								JOptionPane.showMessageDialog(null,"Incorrect details!!");
+							}
+						}
 						break;
 
 					case 5:
+						// Mini Statement
+						break;
+
+					case 6:
 						System.exit(0);
 
 					default:

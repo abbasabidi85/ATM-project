@@ -40,4 +40,21 @@ public class AtmOperation implements AtmInterface {
 
 	}
 
+	@Override
+	public void transferFunds(int transferAmount) {
+		// TODO Auto-generated method stub
+		if(transferAmount <= atmMachine.getCurrentBalance())
+		{
+			JOptionPane.showMessageDialog(null,"Amount " + transferAmount + " has been transferred sucessfully!");
+			atmMachine.setCurrentBalance()
+		}
+	}
+
+	@Override
+	public void updateCurrentBalance(int updateCurrentBalance) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
 }
