@@ -9,11 +9,11 @@ public class AtmDriverCode{
 		
 		//ATM details
 		
-		AtmDetails atmDetails1 = new AtmDetails(86510178,789,"23/09/2026",987, 000123445);
-		AtmDetails atmDetails2 = new AtmDetails(18638346,729,"11/09/2026",982, 000123445);
-		AtmDetails atmDetails3 = new AtmDetails(88382423,719,"23/11/2026",937, 000123445);
-		AtmDetails atmDetails4 = new AtmDetails(86243838,780,"22/09/2027",997, 000123445);
-		AtmDetails atmDetails5 = new AtmDetails(86534338,785,"23/12/2024",927, 000123445);
+		AtmDetails atmDetails1 = new AtmDetails(86510178,789,"23/09/2026",987, 000123);
+		AtmDetails atmDetails2 = new AtmDetails(18638346,729,"11/09/2026",982, 000123);
+		AtmDetails atmDetails3 = new AtmDetails(88382423,719,"23/11/2026",937, 000123);
+		AtmDetails atmDetails4 = new AtmDetails(86243838,780,"22/09/2027",997, 000123);
+		AtmDetails atmDetails5 = new AtmDetails(86534338,785,"23/12/2024",927, 000123);
 		
 		//Customer details
 		Customer customer1 = new Customer("Md Shamim","Male");
@@ -100,20 +100,21 @@ public class AtmDriverCode{
 						// Transfer Funds
 						long tfCardNo =  Long.parseLong(JOptionPane.showInputDialog("Enter the card number:"));
 		                long tfIFSCode =  Long.parseLong(JOptionPane.showInputDialog("Enter the IFSC Code:"));
-						Customer validateCustomer=null;
 
 						for(Customer tf:listCustomer) {
-							if((tf.getAtmArray().get(0).getCardNo()==tfCardNo&&(tf.getAtmArray().get(0).getIFSC()==tfIFSCode))) {
-								validateCustomer=tf;
-							break;
-							}
+							if((tf.getAtmArray().get(0).getCardNo()==tfCardNo&&(tf.getAtmArray().get(0).getIfscCode()==tfIFSCode))) {
+								JOptionPane.showMessageDialog(null,"Validation sucessfull!!");
+								int transferAmount = Integer.parseInt(JOptionPane.showInputDialog("Enter amount"));
+								JOptionPane.showMessageDialog(null,"Amount Transferred Successfully!!");
+								atmOperation.transferFunds(transferAmount);
+								break;
+								}
 							else {
 								//System.err.println("Incorrect details!!");
 								JOptionPane.showMessageDialog(null,"Incorrect details!!");
 							}
-						}
 						break;
-
+					    }
 					case 5:
 						// Mini Statement
 						break;

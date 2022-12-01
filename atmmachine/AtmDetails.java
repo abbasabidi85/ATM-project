@@ -6,17 +6,17 @@ public class AtmDetails{
     private int pin;
     private String expDate;
     private int cvv;
-    private int IFSC;
+    private int ifscCode;
 
     
 
     //Constructor
-    AtmDetails (int cardNo, int cvv, String expDate, int pin, int IFSC){
+    AtmDetails (int cardNo, int cvv, String expDate, int pin, int ifscCode){
         this.cardNo = cardNo;
         this.cvv = cvv;
         this.expDate = expDate;
         this.pin = pin;
-        this.IFSC = IFSC;
+        this.ifscCode = ifscCode;
     }
 
     //Getters and Setters
@@ -45,11 +45,12 @@ public class AtmDetails{
     public void setCvv(int cvv) {
         this.cvv = cvv;
     }
-    public int getIFSC() {
-        return IFSC;
+    
+    public int getIfscCode() {
+        return ifscCode;
     }
-    public void setIFSC(int iFSC) {
-        IFSC = iFSC;
+    public void setIfscCode(int ifscCode) {
+        this.ifscCode = ifscCode;
     }
 
 }

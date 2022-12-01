@@ -19,7 +19,6 @@ public class AtmOperation implements AtmInterface {
 		atmMachine.setCurrentBalance(atmMachine.getCurrentBalance() + depAmount);
 		viewBalance();
 	}
-
 	@Override
 	public void withdrawal(int withdrawAmount) {
 		if (withdrawAmount <= atmMachine.getCurrentBalance()) {
@@ -46,15 +45,12 @@ public class AtmOperation implements AtmInterface {
 		if(transferAmount <= atmMachine.getCurrentBalance())
 		{
 			JOptionPane.showMessageDialog(null,"Amount " + transferAmount + " has been transferred sucessfully!");
-			atmMachine.setCurrentBalance()
-		}
-	}
+			atmMachine.setCurrentBalance(atmMachine.getCurrentBalance() + transferAmount);
+		    viewBalance();
+	    }
 
-	@Override
-	public void updateCurrentBalance(int updateCurrentBalance) {
-		// TODO Auto-generated method stub
-		
-		
-	}
 
+}
+
+	
 }
