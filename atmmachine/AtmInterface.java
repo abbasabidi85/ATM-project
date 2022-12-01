@@ -6,5 +6,7 @@ public interface AtmInterface {
     public void deposit(int depAmount);
     public void withdrawal(int withdrawAmount);
     public void miniStatement();
+    public void transferFunds(int transferAmount);
+    public void updateCurrentBalance(int updateCurrentBalance);
     
 }

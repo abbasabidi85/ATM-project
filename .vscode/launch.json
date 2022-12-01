@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch AtmDriverCode",
+            "request": "launch",
+            "mainClass": "atmmachine.AtmDriverCode",
+            "projectName": "ProjectWork"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
